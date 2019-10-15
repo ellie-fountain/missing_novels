@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MissingNovels</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   <div class="wrapper">
+      <% if user_signed_in? %>
+        <%= render 'layouts/header_log_in' %>
+      <% else %>
+        <%= render 'layouts/header_log_out' %>
+      <% end %>
+    
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <div class="c">
+      <%= yield %>
+    </div>
+
+
+        <%= render 'layouts/footer' %>
+  </div>
+  </body>
+</html>

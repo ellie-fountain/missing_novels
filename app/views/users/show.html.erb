@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+       <h1>ユーザー情報</h1>
+       <div class="profile-image">
+         <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, class: "img-profile-thumb", fallback: "blank-profile-picture-973460_960_720.png", size:'50x50' %>
+       </div>
+        <div class="profile-name">
+    	    <h3 class="prof-name">名前</h3>
+    	    <%= @user.name %>
+        </div>
+        <div class="prof-fav">
+        	<%= link_to "いいね一覧", favorites_index_path %>
+        </div><br>
+        <div class="prof-edit">
+          <% if @user == current_user %>
+        	<%= link_to "編集する", edit_user_path %>
+          <% end %>
+        </div><br>
+
+    </div>
+   </div>
+</div>

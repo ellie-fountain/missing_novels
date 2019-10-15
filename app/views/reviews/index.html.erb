@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>人気投稿ランキング</h2>
+			<% @all_ranks.each.with_index(1) do |review, i| %>
+			    <div class="row">
+			    	　　　<div class="col-md-1">
+			    		  <p class="rank-num">第<%=i %>位</p>
+			    	    </div>
+						<div class="col-md-3">
+							<table class="table">
+							<tbody>
+								<tr>
+									<th><%= review.novel_name %></th>
+								</tr><br>
+								<tr>
+									<th><%= review.review_title%></th>
+								</tr><br>
+								<tr>
+									<th><%= truncate(review.review_text) %><%= link_to "本文をもっと読むにはこちらをクリック", review_path(review) %></th>
+								</tr><br>
+							</tbody>
+							</table>
+						</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-md-12">
+				<h2>レビュー一覧</h2>
+
+				<% @reviews.each do |review| %>
+					<div class="row">
+						<div class="col-md-6">
+							<table class="table">
+							<tbody>
+								<tr>
+									<th><%= review.novel_name %></th>
+								</tr><br>
+								<tr>
+									<th><%= review.review_title%></th>
+								</tr><br>
+								<tr>
+									<th><%= truncate(review.review_text) %><%= link_to "本文をもっと読むにはこちらをクリック", review_path(review) %></th>
+								</tr><br>
+								<tr>
+									<th><%=render 'reviews/tag_list', tag_list: review.tag_list %></th>
+								</tr>
+							</tbody>
+							</table>
+						</div>
+						<div class="col-md-6">
+							<br>
+							<br>
+							<br>
+							<%= attachment_image_tag @user, :profile_image, :fill, 85, 85, class: "profile-thumb", fallback: "blank-profile-picture-973460_960_720.png", size: '85x85' %><br><br>
+							<%= link_to review.user.name, user_path(review.user) %>
+						</div>
+					</div>
+				<% end %>
+				<%= paginate @reviews %> <!--後でページネーションを復元する　-->
+		</div>
+	</div>
+</div>

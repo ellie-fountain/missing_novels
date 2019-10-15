@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+		       <h4>レビュー題名</h4>
+			</div>
+			<div class="panel-body">
+		       <%= @review.review_title %>
+			</div>
+			<div class="panel-heading">
+				<h4>レビュー元作品名</h4>
+			</div>
+			<div class="panel-body">
+		       <%= @review.novel_name %>
+			</div>
+			<div class="panel-heading">
+				<h4>レビュー本文</h4>
+			</div>
+			<div class="panel-body">
+		       <%= @review.review_text %>
+			</div>
+			<div class="panel-heading">
+				<h4>投稿者情報</h4>
+			</div>
+			<div class="panel-body">
+		       <%= link_to @user.name, user_path(@user) %>
+			</div>
+			<div class="panel-heading">
+				<h4>お気に入り件数</h4>
+			</div>
+			<div class="panel-body">
+				<%= @review.favorites.count %>件
+			</div>
+			<div class="panel-heading">
+				<h4>このレビューをお気に入り登録する</h4>
+			</div>
+			<div class="panel-booy">
+				<% if user_signed_in? %>
+					<% if current_user.already_favorited?(@review) %>
+					  <%= button_to 'お気に入りを取り消す', favorite_path(review_id: @review), method: :delete %>
+					<% else %>
+					  <%= button_to 'お気に入りに登録する', favorites_path(review_id: @review) %>
+					<% end %>
+				<% else %>
+				 　<p class="before-notice">ログイン、または会員登録するとレビューをお気に入りに登録することができます！</p>
+				<% end %>
+			</div>
+			<div class="panel-heading">
+				<h4>タグ一覧</h4>
+			</div>
+			<div class="panel-body">
+				<%= render 'reviews/tag_list', tag_list: @review.tag_list %>
+			</div>
+		</div>
+
+       <div class="review_editer">
+       	<% if @user == current_user %>
+          <%= link_to "編集する", edit_review_path(@review), class:"btn btn-default" %>
+        <% end %>
+          <%= link_to "一覧に戻る", reviews_path, class:"btn btn-default" %>
+       </div>
+
+    </div>
+   </div>
+</div>
