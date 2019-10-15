@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def remove
   	@user = current_user
   end
-  
+
   def update
   	@user = User.find(params[:id])
     if @user.update(user_params)
@@ -35,6 +35,11 @@ class UsersController < ApplicationController
         user.destroy 
         redirect_to root_path 
   end
+  private
+    def user_params
+      params.require(:user).permit(:user_name, :profile_image)
+    end
+
 
 
 end
