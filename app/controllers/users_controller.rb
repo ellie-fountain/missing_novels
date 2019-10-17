@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
-
+     @user = User.find(params[:id])
+     if @user.admin_flg == true
+      @users = User.all
+     else
+      redirect_to root_path
+     end
   end
 
   def show
@@ -8,6 +13,10 @@ class UsersController < ApplicationController
      #unless @user.id == current_user.id
       #redirect_to user_path(@current_user)
      #end
+  end
+  def favorites
+    @user = User.find(params[:user_id])
+    @favorites = @user.favorites
   end
 
   def edit

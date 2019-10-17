@@ -2,22 +2,22 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
 
-       <h1>ユーザー情報</h1>
+       <h1>ユーザー情報</h1><br>
        <div class="profile-image">
-         <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, class: "img-profile-thumb", fallback: "blank-profile-picture-973460_960_720.png", size:'50x50' %>
+         <%= attachment_image_tag @user, :profile_image, :fill, 80, 80, class: "img-profile-thumb", fallback: "blank-profile-picture-973460_960_720.png", size:'80x80' %>
        </div>
         <div class="profile-name">
     	    <h3 class="prof-name">名前</h3>
     	    <%= @user.name %>
-        </div>
+        </div><br>
         <div class="prof-fav">
-        	<%= link_to "いいね一覧", favorites_index_path %>
+        	<%= link_to "お気に入りに登録した投稿一覧", user_favorites_path(@user), class:'btn btn-success' %>
         </div><br>
         <div class="prof-edit">
           <% if @user == current_user %>
-        	<%= link_to "編集する", edit_user_path %>
+        	<%= link_to "編集する", edit_user_path, class:'btn btn-default' %>
           <% end %>
-        </div><br>
+        </div><br><br>
 
     </div>
    </div>

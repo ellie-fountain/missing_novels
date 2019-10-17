@@ -1,2 +1,17 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
+<div class="row">
+    <h3>("#{[user_name]}")さんがお気に入りにした投稿一覧</h3>
+    <hr>
+    <% user.favorites.each do |fav| %>
+        <div class="col-md-offset-2">
+            <div class="row  favorite-border-item">
+                <div class="col-md-5">
+                    <p class="index-font"><%= review.review_title %></p>
+                    <p class="index-font"><%= review.novel_name %></p>
+                    <p class="index-font"><%= item.artist. %></p>
+                    <p class="index-font"><%= truncate(.review_text) %>
+                    <p class="index-font"><%= link_to 'レビュー詳細', review_path(@review) %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'reviews#index'
   get 'favorites/index'
-  resources :users
+  resources :users do
+  	get '/favorites' => 'users#favorites',as: 'favorites'
+  end
   get '/user_retire' => 'users#remove',as: 'user_retire'
   resources :reviews
   get '/page_about' => 'reviews#about',as: 'page_about'
