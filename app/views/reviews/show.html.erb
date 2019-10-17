@@ -40,9 +40,9 @@
 			<div class="panel-booy">
 				<% if user_signed_in? %>
 					<% if current_user.already_favorited?(@review) %>
-					  <%= button_to 'お気に入りを取り消す', favorite_path(review_id: @review), method: :delete %>
+					  <%= link_to 'お気に入りを取り消す', favorite_path(review_id: @review), method: :delete, class: "glyphicon glyphicon-star btn btn-default" %>
 					<% else %>
-					  <%= button_to 'お気に入りに登録する', favorites_path(review_id: @review) %>
+					  <%= link_to 'お気に入りに登録する', favorites_path(review_id: @review), method: :post, class: "glyphicon glyphicon-star-empty btn btn-default"  %>
 					<% end %>
 				<% else %>
 				 　<p class="before-notice">ログイン、または会員登録するとレビューをお気に入りに登録することができます！</p>

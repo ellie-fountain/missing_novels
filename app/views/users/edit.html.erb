@@ -12,6 +12,8 @@
 
   <h4>名前</h4>
   <%= f.text_field :name %>
+  <h4>プロフィール文</h4>
+  <%= f.text_area :caption %>
   <h4>メールアドレス</h4>
   <%= f.text_field :email %><br>
   <h4>パスワード</h4>
@@ -32,5 +34,5 @@
 
 <% end %>
 
-<h4>退会する</h4>
-<%= link_to "退会", user_retire_path %>
+<h4 class="user-retire" style="margin-top: 20px">退会する</h4>
+<%= link_to "退会", user_retire_path, class:"btn btn-danger btn-sm" %>

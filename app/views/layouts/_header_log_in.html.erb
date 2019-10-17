@@ -5,10 +5,10 @@
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-          <li class="header-nav-1" style="padding-top: 10px"><%= link_to " マイページ ", user_path(current_user) %></li>
-          <li class="header-nav-2" style="padding-top: 10px"><%= link_to " ログアウト ", destroy_user_session_path, method: :delete %></li>
-           <li class="header-nav-3" style="padding-top: 10px"><%= link_to "投稿する",  new_review_path %></li>
-           <li class="search-form" style="padding-top: 20px">
+          <li class="header-nav-1" style="padding-top: 10px"><%= link_to " マイページ ", user_path(current_user), class:"glyphicon glyphicon-user" %></li>
+          <li class="header-nav-2" style="padding-top: 10px"><%= link_to " ログアウト ", destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-log-out" %></li>
+           <li class="header-nav-3" style="padding-top: 10px"><%= link_to "投稿する",  new_review_path, class:"glyphicon glyphicon-pencil" %></li>
+           <li class="search-form" style="padding-top: 23px">
             <%= search_form_for @q do |f| %>
               <%= f.search_field :review_title_or_review_text_or_novel_name_cont %>
               <%= f.submit "検索" %>
