@@ -22,6 +22,18 @@
         	<%= link_to "編集する", edit_user_path, class:'btn btn-default' %>
           <% end %>
         </div><br><br>
+        <div class="admin-menu">
+          <% if @user.admin_flg == true %>
+          <h2>管理者用メニュー</h2>
+          <% end %>
+        </div><br>
+        <div class="admin-link">
+          <% if @user.admin_flg == true %>
+          <%= link_to "ユーザー一覧", user_admin_index_path(@user.id), class:'btn btn-default' %>
+          <% end %>
+        </div>
+
+        </div>
 
     </div>
    </div>

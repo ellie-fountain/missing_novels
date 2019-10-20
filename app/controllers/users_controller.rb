@@ -1,7 +1,16 @@
 class UsersController < ApplicationController
   def index
-     @user = User.find(params[:id])
-     if @user.admin_flg == true
+     #@users = User.find(params[:id])
+     #if @user.admin_flg == true
+      #@users = User.all
+     #else
+      #redirect_to root_path
+     #end
+  end
+
+  def admin_index
+     @users = User.find(params[:id])
+     if @users.admin_flg == true
       @users = User.all
      else
       redirect_to root_path
@@ -40,9 +49,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-  	user = User.find(params[:id]) 
-        user.destroy 
-        redirect_to root_path 
+  	user = User.find(params[:id])
+        user.destroy
+        redirect_to root_path
   end
   private
     def user_params

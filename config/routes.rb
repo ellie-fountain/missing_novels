@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'favorites/index'
   resources :users do
   	get '/favorites' => 'users#favorites',as: 'favorites'
+  	get '/admin_index/:id' => 'users#admin_index',as:'admin_index'
   end
   get '/user_retire' => 'users#remove',as: 'user_retire'
   resources :reviews

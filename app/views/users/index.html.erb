@@ -1,4 +1,4 @@
-<%# if @user == admin_flg.true? %>
+<%#= if @user.admin_flg == true %>
 <div class="container" >
 	<div class="row">
 		<div class="col-md-12">
@@ -13,13 +13,13 @@
 									<th><%= attachment_image_tag @user, :profile_image, :fill, 85, 85, class: "profile-thumb", fallback: "blank-profile-picture-973460_960_720.png", size: '85x85' %><br><br></th>
 								</tr><br>
 								<tr>
-									<th><<%= link_to user.name,(user_path) %></th>
+									<th><<%= link_to user.name,user_path %></th>
 								</tr><br>
 								<tr>
-									<th><%= link_to "編集する", user_path(@user) %></th>
+									<th><%= link_to "編集", user_path(@user) %></th>
 								</tr><br>
 								<tr>
-									<th><%= link_to "退会する", user_path(@user), method: :delete, class:'btn btn-danger' %></th>
+									<th><%= link_to "退会", user_path(@user), method: :delete, class:'btn btn-danger' %></th>
 								</tr>
 							</tbody>
 							</table>
@@ -29,3 +29,4 @@
 		</div>
 	</div>
 </div>
+<% end %>

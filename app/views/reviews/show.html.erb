@@ -59,6 +59,8 @@
        <div class="review_editer">
        	<% if @user == current_user %>
           <%= link_to "編集する", edit_review_path(@review), class:"btn btn-default" %>
+        <% else @user.admin_flg == true  %>
+          <%= link_to "編集する", edit_review_path(@review), class:"btn btn-default" %>
         <% end %>
           <%= link_to "一覧に戻る", reviews_path, class:"btn btn-default" %>
        </div>
