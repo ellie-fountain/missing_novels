@@ -6,7 +6,13 @@
 
 				<% @all_ranks.each.with_index(1) do |review, i| %>
 		    	　　　<div class="col-md-1">
-		    		  <p class="rank-num">第<%=i %>位</p>
+		    		<% if i == 1 %>
+		    		  <p class="rank-num-1">第<%=i %>位</p>
+		    		<% elsif i==2 %>
+		    		<p class="rank-num-2">第<%=i %>位</p>
+		    		<% elsif i==3 %>
+		    		<p class="rank-num-3">第<%=i %>位</p>
+		    	    <% end %>
 		    	    </div>
 					<div class="col-md-3 rank-item">
 						<table class="table">
