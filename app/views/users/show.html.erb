@@ -14,6 +14,9 @@
           <h3 class="prof-cap">自己紹介</h3>
           <%= @user.caption %>
         </div><br>
+        <div class="prof-hist">
+          <%= link_to "投稿履歴", user_histories_path(@user.id), class:'btn btn-primary' %>
+        </div><br>
         <div class="prof-fav">
         	<%= link_to "お気に入りに登録した投稿一覧", user_favorites_path(@user), class:'btn btn-success' %>
         </div><br>

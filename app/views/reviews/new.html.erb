@@ -8,9 +8,9 @@
 	    <h4>レビュー元作品</h4>
 	    <%= f.text_field :novel_name %>
 	    <h4>レビュー本文</h4>
-	    <%= f.text_area :review_text %><br>
+	    <%= f.text_area :review_text,size: "70x20" %><br>
 	    <h4>タグ</h4>
-	    <%= f.text_field :tag_list, value: @review.tag_list.join(','), class: "form-control" %>
+	    <%= f.text_field :tag_list, value: @review.tag_list.join(','), class: "form-control" %><br>
 	    <%= f.submit 'レビューを投稿する' %><br><br>
 	  <% end %>
 	  <%= link_to '一覧に戻る', root_path, class:"btn btn-primary" %>

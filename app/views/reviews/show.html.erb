@@ -40,7 +40,10 @@
 			<div class="panel-booy">
 				<% if user_signed_in? %>
 					<% if current_user.already_favorited?(@review) %>
-					  <%= link_to 'お気に入りを取り消す', favorite_path(review_id: @review), method: :delete, class: "glyphicon glyphicon-star btn btn-default" %>
+					  <%= link_to favorite_path(review_id: @review), method: :delete, class: "btn btn-default"  do %>
+					  	<i class="glyphicon glyphicon-star"></i> お気に入りを取り消す
+					  <% end %>
+
 					<% else %>
 					  <%= link_to 'お気に入りに登録する', favorites_path(review_id: @review), method: :post, class: "glyphicon glyphicon-star-empty btn btn-default"  %>
 					<% end %>

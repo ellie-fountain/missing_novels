@@ -8,6 +8,11 @@ class UsersController < ApplicationController
      #end
   end
 
+  def histories
+    @user = User.find(params[:user_id])
+    @reviews = @user.reviews
+  end
+
   def admin_index
      @users = User.find(params[:id])
      if @users.admin_flg == true

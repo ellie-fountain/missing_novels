@@ -5,7 +5,7 @@
 		    <div class="row review-rank">
 
 				<% @all_ranks.each.with_index(1) do |review, i| %>
-		    	　　　<div class="col-md-1">
+		    		<div class="col-md-1">
 		    		<% if i == 1 %>
 		    		  <p class="rank-num-1">第<%=i %>位</p>
 		    		<% elsif i==2 %>
@@ -18,13 +18,15 @@
 						<table class="table">
 						<tbody>
 							<tr>
-								<th>作品名　<%= review.novel_name %></th>
+								<th>作品名　<%= review.novel_name.truncate(10) %></th>
 							</tr><br>
 							<tr>
-								<th>レビュータイトル　<%= review.review_title%></th>
+								<th>レビュータイトル　<%= review.review_title.truncate(5) %></th>
 							</tr><br>
 							<tr>
-								<th>レビュー本文　<%= truncate(review.review_text) %><%= link_to "本文をもっと読むにはこちらをクリック", review_path(review) %></th>
+								<th>レビュー本文　
+									<%= truncate(review.review_text) %><%= link_to "本文をもっと読むにはこちらをクリック", review_path(review) %></th>
+
 							</tr><br>
 						</tbody>
 						</table>
