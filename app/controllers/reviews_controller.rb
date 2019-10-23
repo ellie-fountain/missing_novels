@@ -61,7 +61,7 @@ class ReviewsController < ApplicationController
     redirect_to reviews_path
   end
   def tag_searched
-    @reviews = Review.tagged_with("#{params[:tag_name]}")
+    @reviews = Review.tagged_with("#{params[:tag_name]}").page(params[:page]).per(PER)
   end
 
   private

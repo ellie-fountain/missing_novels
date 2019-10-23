@@ -5,7 +5,7 @@
 
 			
 				<% @reviews.each do |review| %>
-					<div class="row">
+					<div class="row review-list">
 						<div class="col-md-6">
 							<table class="table">
 							<tbody>
@@ -31,9 +31,9 @@
 							<%= attachment_image_tag @user, :profile_image, :fill, 85, 85, class: "profile-thumb", fallback: "blank-profile-picture-973460_960_720.png", size: '85x85' %><br><br>
 							<%= link_to review.user.name, user_path(review.user) %>
 						</div>
-					</div>
+					</div><br>
 				<% end %>
-				<%#= paginate @reviews %> <!--後でページネーションを復元する　-->
+				<%= paginate @reviews %>
 		</div>
     </div>
 </div>
