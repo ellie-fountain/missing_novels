@@ -28,7 +28,7 @@
 							<br>
 							<br>
 							<br>
-							<%= attachment_image_tag @user, :profile_image, :fill, 85, 85, class: "profile-thumb", fallback: "blank-profile-picture-973460_960_720.png", size: '85x85' %><br><br>
+							<%= attachment_image_tag review.user, :profile_image, :fill, 85, 85, class: "profile-thumb", fallback: "blank-profile-picture-973460_960_720.png", size: '85x85' %><br><br>
 							<%= link_to review.user.name, user_path(review.user) %>
 						</div>
 					</div><br>
