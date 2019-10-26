@@ -71,3 +71,7 @@ gem 'acts-as-taggable-on', '~> 6.0' #タグ機能
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'kaminari'
 gem 'ransack'
+
+group :production do
+    gem 'mysql2'
+end
