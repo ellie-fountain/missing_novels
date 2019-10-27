@@ -29,5 +29,5 @@ production:
   collation: utf8mb4_general_ci
   host: rds-mysql-server.canp2eisvrat.us-east-2.rds.amazonaws.com
   username: root
-  password: ef7291vs
+  password: ''
 
