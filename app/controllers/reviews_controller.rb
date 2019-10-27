@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     # @reviews = Review.page(params[:page]).per(PER)
   	#@reviews = Review.all
     #@user = User.find(@review.user_id)
-    #@all_ranks = Review.find(Favorite.group(:review_id).order('count(review_id) desc').limit(3).pluck(:review_id))
+    @all_ranks = Review.find(Favorite.group(:review_id).order('count(review_id) desc').limit(3).pluck(:review_id))
     @q = Review.page(params[:page]).per(PER).ransack(params[:q])
     @reviews = @q.result(distinct: true)
   end
@@ -24,8 +24,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    if current_user.admin_flg == true or @review.user_id == current_user.id
     @review = Review.find(params[:id])
-    unless @review.user_id == current_user.id
+    else
       redirect_to reviews_path
     end
     @q = Review.ransack(params[:q])

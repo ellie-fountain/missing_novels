@@ -34,10 +34,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if current_user.admin_flg == true or @user.id == current_user.id
   	@user = User.find(params[:id])
-     unless @user.id == current_user.id
+    else
       redirect_to user_path(@current_user)
-     end
+    end
   end
   def remove
   	@user = current_user
