@@ -24,10 +24,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    if current_user.admin_flg == true or @review.user_id == current_user.id
     @review = Review.find(params[:id])
-    else
-      redirect_to reviews_path
+    unless current_user.admin_flg == true or @review.user_id == current_user.id
+      return redirect_to reviews_path
     end
     @q = Review.ransack(params[:q])
   end
