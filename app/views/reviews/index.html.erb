@@ -1,42 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h2>人気投稿ランキング</h2>
-		    <div class="row review-rank">
-
-				<% @all_ranks.each.with_index(1) do |review, i| %>
-		    		<div class="col-md-1">
-		    		<% if i == 1 %>
-		    		  <p class="rank-num-1">第<%=i %>位</p>
-		    		<% elsif i==2 %>
-		    		<p class="rank-num-2">第<%=i %>位</p>
-		    		<% elsif i==3 %>
-		    		<p class="rank-num-3">第<%=i %>位</p>
-		    	    <% end %>
-		    	    </div>
-					<div class="col-md-3 rank-item">
-						<table class="table">
-						<tbody>
-							<tr>
-								<th>作品名　<%= review.novel_name.truncate(10) %></th>
-							</tr><br>
-							<tr>
-								<th>レビュータイトル　<%= review.review_title.truncate(5) %></th>
-							</tr><br>
-							<tr>
-								<th>レビュー本文　
-									<%= truncate(review.review_text) %><%= link_to "本文をもっと読むにはこちらをクリック", review_path(review) %></th>
-
-							</tr><br>
-						</tbody>
-						</table>
-					</div>
-				<% end %>
-			</div>
-		</div>
-		<div class="col-md-12">
 				<h2>レビュー一覧</h2>
-
 				<% @reviews.each do |review| %>
 					<div class="row review-list">
 						<div class="col-md-9">

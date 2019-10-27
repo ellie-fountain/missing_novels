@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     # @reviews = Review.page(params[:page]).per(PER)
   	#@reviews = Review.all
     #@user = User.find(@review.user_id)
-    @all_ranks = Review.find(Favorite.group(:review_id).order('count(review_id) desc').limit(3).pluck(:review_id))
+    #@all_ranks = Review.find(Favorite.group(:review_id).order('count(review_id) desc').limit(3).pluck(:review_id))
     @q = Review.page(params[:page]).per(PER).ransack(params[:q])
     @reviews = @q.result(distinct: true)
   end
