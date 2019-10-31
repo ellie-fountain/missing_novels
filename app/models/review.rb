@@ -7,4 +7,5 @@ class Review < ApplicationRecord
     validates :review_title, presence: true
     validates :novel_name, presence: true
     validates :review_text, presence: true
+    validates :review_text, length:{ minimum:30 }
 end
