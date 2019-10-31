@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# User.create(admin_flg: true,name: 'adminman', email:'kanrininn@kanri.com', password: 'kannrininn',password_confirmation: "kannrininn")
+User.create(admin_flg: true,name: 'adminman', email:'kanrininn@kanri.com', password: 'kannrininn',password_confirmation: "kannrininn")
 
 
 
