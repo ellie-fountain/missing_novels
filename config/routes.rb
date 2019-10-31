@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get '/page_about' => 'reviews#about',as: 'page_about'
   resources :favorites, only: [:create, :destroy]
   get '/tag_searched/:tag_name' => 'reviews#tag_searched',as: 'tag_searched'
+  resources :categories, only:[:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

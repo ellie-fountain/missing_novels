@@ -38,9 +38,8 @@ class ReviewsController < ApplicationController
       flash[:notice] = "レビューが無事投稿されました！"
       redirect_to review_path(@review)
     else
-      @reviews = Review.all
-      @user = current_user
-      render :index
+      @q = Review.ransack(params[:q])
+      render :new
     end
   end
 
@@ -66,7 +65,7 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:review_title, :novel_name, :review_text, :tag_list)
+      params.require(:review).permit(:review_title, :novel_name, :review_text, :tag_list, :category_id)
     end
 
 end

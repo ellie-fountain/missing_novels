@@ -52,6 +52,12 @@
 				<% end %>
 			</div>
 			<div class="panel-heading">
+				<h4>カテゴリー</h4>
+			</div>
+			<div class="panel-body">
+				<%=link_to @review.category.name,category_path(@review.category.id) %>
+			</div>
+			<div class="panel-heading">
 				<h4>タグ一覧</h4>
 			</div>
 			<div class="panel-body">

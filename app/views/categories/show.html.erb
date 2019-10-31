@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+				<h2>カテゴリー検索結果ー一覧</h2>
+
+				<% @category.reviews.each do |review| %>
+					<div class="row review-list">
+						<div class="col-md-9">
+							<table class="table">
+							<tbody>
+								<tr>
+									<th>作品名　<%= review.novel_name %></th>
+								</tr><br>
+								<tr>
+									<th>レビュータイトル　<%= review.review_title%></th>
+								</tr><br>
+								<tr>
+									<th>レビュー本文　<%= truncate(review.review_text) %><%= link_to "本文をもっと読むにはこちらをクリック", review_path(review) %></th>
+								</tr><br>
+								<tr>
+									<th><%=render 'reviews/tag_list', tag_list: review.tag_list %></th>
+								</tr>
+							</tbody>
+							</table>
+						</div>
+						<div class="col-md-3">
+							<br>
+							<br>
+							<br>
+							<%= attachment_image_tag review.user, :profile_image, :fill, 85, 85, class: "profile-thumb", fallback: "blank-profile-picture-973460_960_720.png", size: '85x85' %><br><br>
+							<%= link_to review.user.name, user_path(review.user) %>
+						</div>
+					</div><br>
+				<% end %>
+				<%#= paginate @reviews %> <!--後でページネーションを復元する　-->
+		</div>
+	</div>
+</div>
